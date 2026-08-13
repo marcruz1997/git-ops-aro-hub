@@ -8,7 +8,7 @@ metadata:
     machine.openshift.io/cluster-api-machine-role: infra
     machine.openshift.io/cluster-api-machine-type: infra
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       machine.openshift.io/cluster-api-cluster: ocp-hub-cluster-cdtsb
