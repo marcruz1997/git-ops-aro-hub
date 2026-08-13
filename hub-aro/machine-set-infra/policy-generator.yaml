@@ -1,0 +1,19 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+
+metadata:
+  name: machine-set-infra-policy-generator
+
+policyDefaults:
+  remediationAction: enforce
+  namespace: hub-cluster-infra
+  placement:
+    placementName: hub-cluster-infra
+
+placementBindingDefaults:
+  name: binding-machine-set-infra
+
+policies:
+  - name: machine-set-infra
+    manifests:
+      - path: manifests

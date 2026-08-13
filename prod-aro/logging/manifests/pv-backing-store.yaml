@@ -1,0 +1,17 @@
+apiVersion: noobaa.io/v1alpha1
+kind: BackingStore
+metadata:
+  resourceVersion: '150735'
+  name: noobaa-loki-backing-store
+  namespace: openshift-storage
+  finalizers:
+    - noobaa.io/finalizer
+  labels:
+    app: noobaa
+spec:
+  pvPool:
+    numVolumes: 1
+    resources:
+      requests:
+        storage: 500Gi
+  type: pv-pool

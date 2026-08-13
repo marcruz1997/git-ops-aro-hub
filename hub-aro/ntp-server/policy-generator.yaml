@@ -1,0 +1,19 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+
+metadata:
+  name: ntp-server-policy-generator
+
+policyDefaults:
+  remediationAction: enforce
+  namespace: hub-cluster-infra
+  placement:
+    placementName: hub-cluster-infra
+
+placementBindingDefaults:
+  name: binding-ntp-server-policy-generator
+
+policies:
+  - name: ntp-server-policy
+    manifests:
+      - path: manifests

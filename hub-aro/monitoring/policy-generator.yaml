@@ -1,0 +1,17 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+
+metadata:
+  name: monitoring-policy-generator
+
+policyDefaults:
+  remediationAction: enforce
+  namespace: hub-cluster-infra
+  placement:
+    placementName: hub-cluster-infra
+
+policies:
+- name: monitoring-policy-generator
+
+  manifests:
+  - path: manifests

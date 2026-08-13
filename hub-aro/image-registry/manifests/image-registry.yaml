@@ -1,0 +1,20 @@
+apiVersion: imageregistry.operator.openshift.io/v1
+kind: Config
+metadata:
+  name: cluster
+spec:
+  managementState: Managed
+  replicas: 1
+
+  defaultRoute: true
+
+  rolloutStrategy: Recreate
+
+  nodeSelector:
+    node-role.kubernetes.io/infra: ""
+    env: infra
+    
+  storage:
+    managementState: Managed
+    pvc:
+      claim: image-registry-storage

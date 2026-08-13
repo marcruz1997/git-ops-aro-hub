@@ -1,0 +1,19 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+
+metadata:
+  name: logging-policy-generator
+
+policyDefaults:
+  remediationAction: enforce
+  namespace: prod
+  placement:
+    placementName: prod
+
+placementBindingDefaults:
+  name: binding-logging-policy-generator
+
+policies:
+  - name: logging-policy
+    manifests:
+      - path: manifests

@@ -1,0 +1,48 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  annotations:
+  name: marcruz-bcjhk-worker-0
+  namespace: openshift-machine-api
+  labels:
+    machine.openshift.io/cluster-api-cluster: marcruz-bcjhk
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: marcruz-bcjhk
+      machine.openshift.io/cluster-api-machineset: marcruz-bcjhk-worker-0
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: marcruz-bcjhk
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: marcruz-bcjhk-worker-0
+    spec:
+      lifecycleHooks: {}
+      metadata: {}
+      providerSpec:
+        value:
+          numCoresPerSocket: 1
+          diskGiB: 120
+          snapshot: ''
+          userDataSecret:
+            name: worker-user-data
+          memoryMiB: 16384
+          credentialsSecret:
+            name: vsphere-cloud-credentials
+          network:
+            devices:
+              - networkName: VM Network
+          metadata: {}
+          numCPUs: 8
+          kind: VSphereMachineProviderSpec
+          workspace:
+            datacenter: Datacenter
+            datastore: /Datacenter/datastore/datastore2
+            folder: /Datacenter/vm/Plataformas/Cloud/marcruz/hub-cluster
+            resourcePool: /Datacenter/host/cluster/Resources
+            server: vcsa.rhbr-lab.com.br
+          template: marcruz-bcjhk-rhcos-default
+          apiVersion: machine.openshift.io/v1beta1

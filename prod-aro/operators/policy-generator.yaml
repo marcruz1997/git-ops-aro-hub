@@ -1,0 +1,17 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+
+metadata:
+  name: operators-generator
+
+policyDefaults:
+  remediationAction: enforce
+  namespace: prod
+  placement:
+    placementName: prod
+
+policies:
+- name: operators-generator
+
+  manifests:
+  - path: manifests

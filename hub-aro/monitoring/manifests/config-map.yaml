@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-monitoring-config
+  namespace: openshift-monitoring
+data:
+  config.yaml: |
+    enableUserWorkload: true
+
+    alertmanagerMain:
+      volumeClaimTemplate:
+        metadata:
+          name: pvc-alertmanager
+        spec:
+          storageClassName: thin-csi
+          resources:
+            requests:
+              storage: 2Gi
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+
+    prometheusK8s:
+      volumeClaimTemplate:
+        metadata:
+          name: pvc-prometheus
+        spec:
+          storageClassName: thin-csi
+          resources:
+            requests:
+              storage: 100Gi
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+
+    prometheusOperator:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+
+    kubeStateMetrics:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+
+    telemeterClient:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+
+    openshiftStateMetrics:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+
+    thanosQuerier:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+
+    monitoringPlugin:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+
+    metricsServer:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+        env: infra
+        

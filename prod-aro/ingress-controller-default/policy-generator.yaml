@@ -1,0 +1,19 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+
+metadata:
+  name: ingress-controler-default-policy-generator
+
+policyDefaults:
+  remediationAction: enforce
+  namespace: prod
+  placement:
+    placementName: prod
+
+placementBindingDefaults:
+  name: binding-ingress-controler-default
+
+policies:
+  - name: ingress-controler-default
+    manifests:
+      - path: manifests

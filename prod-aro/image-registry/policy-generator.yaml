@@ -1,0 +1,19 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+
+metadata:
+  name: image-registry-default-policy-generator
+
+policyDefaults:
+  remediationAction: enforce
+  namespace: prod
+  placement:
+    placementName: prod
+
+placementBindingDefaults:
+  name: binding-image-registry-default
+
+policies:
+  - name: image-registry-default
+    manifests:
+      - path: manifests

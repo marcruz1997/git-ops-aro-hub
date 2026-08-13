@@ -1,0 +1,123 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-monitoring-config
+  namespace: openshift-monitoring
+data:
+  config.yaml: |
+    enableUserWorkload: true
+
+    alertmanagerMain:
+      volumeClaimTemplate:
+        metadata:
+          name: pvc-alertmanager
+        spec:
+          storageClassName: thin-csi
+          resources:
+            requests:
+              storage: 2Gi
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
+
+    prometheusK8s:
+      volumeClaimTemplate:
+        metadata:
+          name: pvc-prometheus
+        spec:
+          storageClassName: thin-csi
+          resources:
+            requests:
+              storage: 100Gi
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
+
+    prometheusOperator:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
+
+    kubeStateMetrics:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
+
+    telemeterClient:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
+
+    openshiftStateMetrics:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
+
+    thanosQuerier:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
+
+    monitoringPlugin:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
+
+    metricsServer:
+      nodeSelector:
+        node-role.kubernetes.io/infra: ""
+      tolerations:
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/infra
+          operator: Exists
+          effect: NoExecute
