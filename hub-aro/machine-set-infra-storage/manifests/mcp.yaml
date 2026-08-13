@@ -1,7 +1,7 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfigPool
 metadata:
-  name: infra-storage
+  name: infra-logging
 spec:
   machineConfigSelector:
     matchExpressions:
@@ -9,4 +9,4 @@ spec:
   nodeSelector:
     matchLabels:
       node-role.kubernetes.io/infra: ""
-      env: storage
+      env: logging
