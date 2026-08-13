@@ -4,7 +4,7 @@ resources:
   - etcd-backup
   - machine-set-infra
   - machine-set-infra-logging
-  # - machine-set-infra-storage
+  - machine-set-infra-storage
   # - machine-set-worker
   # - monitoring
   # - oauth
