@@ -6,9 +6,9 @@ metadata:
 
 policyDefaults:
   remediationAction: enforce
-  namespace: prod
+  namespace: hub-cluster-infra
   placement:
-    placementName: prod
+    placementName: hub-cluster-infra
 
 placementBindingDefaults:
   name: binding-logging-policy-generator
