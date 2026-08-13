@@ -8,7 +8,7 @@ metadata:
     machine.openshift.io/cluster-api-machine-role: infra
     machine.openshift.io/cluster-api-machine-type: infra
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       machine.openshift.io/cluster-api-cluster: ocp-hub-cluster-cdtsb
@@ -27,6 +27,7 @@ spec:
           env: storage
           node-role.kubernetes.io: infra
           node-role.kubernetes.io/infra: ''
+          cluster.ocs.openshift.io/openshift-storage: ""
       providerSpec:
         value:
           osDisk:
