@@ -9,4 +9,4 @@ resources:
   - oauth
   - ingress-controller-default
   # - image-registry
-  # - operators
+  - operators
