@@ -6,7 +6,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
-  storageClassName: thin-csi
+  storageClassName: managed-csi
   resources:
     requests:
       storage: 100Gi
