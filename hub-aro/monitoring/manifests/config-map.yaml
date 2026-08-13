@@ -12,7 +12,7 @@ data:
         metadata:
           name: pvc-alertmanager
         spec:
-          storageClassName: thin-csi
+          storageClassName: managed-csi
           resources:
             requests:
               storage: 2Gi
@@ -25,7 +25,7 @@ data:
         metadata:
           name: pvc-prometheus
         spec:
-          storageClassName: thin-csi
+          storageClassName: managed-csi
           resources:
             requests:
               storage: 100Gi
