@@ -4,7 +4,7 @@ oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-
 
 token github
 
-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
+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
 
 SA - Backup etcd permissao de executar o job
 
