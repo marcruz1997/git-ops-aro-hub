@@ -10,3 +10,4 @@ resources:
   - ingress-controller-default
   # - image-registry
   - operators
+  - logging
