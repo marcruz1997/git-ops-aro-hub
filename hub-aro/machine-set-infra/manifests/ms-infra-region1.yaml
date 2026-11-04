@@ -1,25 +1,25 @@
 apiVersion: machine.openshift.io/v1beta1
 kind: MachineSet
 metadata:
-  name: ocp-hub-cluster-cdtsb-infra-eastus1
+  name: cluster-teste-48c7j-infra-eastus1
   namespace: openshift-machine-api
   labels:
-    machine.openshift.io/cluster-api-cluster: ocp-hub-cluster-cdtsb
+    machine.openshift.io/cluster-api-cluster: cluster-teste-48c7j
     machine.openshift.io/cluster-api-machine-role: infra
     machine.openshift.io/cluster-api-machine-type: infra
 spec:
   replicas: 1
   selector:
     matchLabels:
-      machine.openshift.io/cluster-api-cluster: ocp-hub-cluster-cdtsb
-      machine.openshift.io/cluster-api-machineset: ocp-hub-cluster-cdtsb-infra-eastus1
+      machine.openshift.io/cluster-api-cluster: cluster-teste-48c7j
+      machine.openshift.io/cluster-api-machineset: cluster-teste-48c7j-infra-eastus1
   template:
     metadata:
       labels:
-        machine.openshift.io/cluster-api-cluster: ocp-hub-cluster-cdtsb
+        machine.openshift.io/cluster-api-cluster: cluster-teste-48c7j
         machine.openshift.io/cluster-api-machine-role: infra
         machine.openshift.io/cluster-api-machine-type: infra
-        machine.openshift.io/cluster-api-machineset: ocp-hub-cluster-cdtsb-infra-eastus1
+        machine.openshift.io/cluster-api-machineset: cluster-teste-48c7j-infra-eastus1
     spec:
       lifecycleHooks: {}
       metadata:
@@ -38,10 +38,10 @@ spec:
               storageAccountType: Premium_LRS
             osType: Linux
           networkResourceGroup: openenv-xb9qh
-          publicLoadBalancer: ocp-hub-cluster-cdtsb
+          publicLoadBalancer: cluster-teste-48c7j
           userDataSecret:
             name: worker-user-data
-          vnet: aro-vnet-msr1c6ay
+          vnet: aro-vnet-mw2edbdr
           securityProfile:
             settings:
               securityType: ''
@@ -55,7 +55,7 @@ spec:
           metadata:
             creationTimestamp: null
           publicIP: false
-          resourceGroup: aro-infra-msr1enfi-ocp-hub-cluster
+          resourceGroup: aro-infra-mw2ef3dh-cluster-teste
           kind: AzureMachineProviderSpec
           location: eastus
           vmSize: Standard_D16s_v3
