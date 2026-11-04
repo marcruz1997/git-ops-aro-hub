@@ -8,7 +8,7 @@ resources:
   - machine-set-worker
   # - monitoring
   - oauth
-  # - ingress-controller-default
+  - ingress-controller-default
   # - image-registry
   # - operators
   # - logging
