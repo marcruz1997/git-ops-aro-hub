@@ -1,7 +1,7 @@
 apiVersion: machine.openshift.io/v1beta1
 kind: MachineSet
 metadata:
-  name: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}-infra-{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.location }}{{ "1" }}'
+  name: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}-infra-z2'
   namespace: openshift-machine-api
   labels:
     machine.openshift.io/cluster-api-cluster: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}'
@@ -12,14 +12,14 @@ spec:
   selector:
     matchLabels:
       machine.openshift.io/cluster-api-cluster: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}'
-      machine.openshift.io/cluster-api-machineset: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}-infra-{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.location }}{{ "1" }}'
+      machine.openshift.io/cluster-api-machineset: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}-infra-z2'
   template:
     metadata:
       labels:
         machine.openshift.io/cluster-api-cluster: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}'
         machine.openshift.io/cluster-api-machine-role: infra
         machine.openshift.io/cluster-api-machine-type: infra
-        machine.openshift.io/cluster-api-machineset: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}-infra-{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.location }}{{ "1" }}'
+        machine.openshift.io/cluster-api-machineset: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}-infra-z2'
     spec:
       metadata:
         labels:
@@ -38,8 +38,8 @@ spec:
           vnet: '{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.vnet }}'
           subnet: '{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.subnet }}'
           # ---- fixo da organização ----
-          vmSize: Standard_D16s_v3
           zone: '2'
+          vmSize: Standard_D16s_v3
           image:
             publisher: azureopenshift
             offer: aro4
