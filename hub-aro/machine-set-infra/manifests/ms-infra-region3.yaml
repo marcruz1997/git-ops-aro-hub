@@ -35,7 +35,7 @@ spec:
           publicLoadBalancer: '{{ (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.infrastructureName }}'
           location: '{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.location }}'
           networkResourceGroup: '{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.networkResourceGroup }}'
-          vnet: '{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.networkResourceGroup }}'
+          vnet: '{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.vnet }}'
           subnet: '{{ (index (lookup "machine.openshift.io/v1beta1" "MachineSet" "openshift-machine-api" "" "machine.openshift.io/cluster-api-machine-role=worker").items 0).spec.template.spec.providerSpec.value.subnet }}'
           # ---- fixo da organização ----
           zone: '3'
