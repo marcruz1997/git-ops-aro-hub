@@ -6,7 +6,7 @@ resources:
   - machine-set-infra-logging
   - machine-set-infra-storage
   - machine-set-worker
-  # - monitoring
+  - monitoring
   - oauth
   - ingress-controller-default
   # - image-registry
